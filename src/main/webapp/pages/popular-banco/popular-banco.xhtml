@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Popular Banco</title>
+    </h:head>
+    <h:body>
+        <div>
+            <p:button href="/" value="Voltar ao HOME" />
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <ui:insert name="content" />
+                <h:form id="populaBancoForm">
+                    <p:panel header="Popular Banco">
+                        <div style="color: red;">*Utilize um arquivo .xlsx no seguinte formato:
+                            <ul>
+                                <li>A primeira página com as informações de Pessoa na seguinte ordem: id, nome, cidade, e-mail, CEP, endereço, país, usuário, telefone, data de nascimento e id do Cargo</li>
+                                <li>A segunda página com as informações de Cargo na seguinte ordem: id, nome</li>
+                                <li>A terceira página com as informações de Vencimentos na seguinte ordem: id, descrição, valor, tipo</li>
+                                <li>A quarta página com as informações de Vencimentos do Cargo na seguinte ordem: id, id do Cargo, id do Vencimento</li>
+                            </ul>
+                            *Todos os ids do sistema são do tipo inteiro<br/>
+                            *O tipo de Vencimento pode ser CREDITO ou DEBITO<br/>
+                            *A primeira linha de cada página deve conter o indicativo da coluna<br/>
+                        </div>
+                        <h:panelGrid columns="1">
+                            <p:fileUpload id="documentoXls" label="Carregar arquivo" description="Selecione um arquivo a ser anexado" allowTypes="/(\.|\/)(xlsx)$/" 
+                            fileUploadListener="#{populaBancoController.handleFileUpload}" mode="advanced" />
+                            <h:commandButton value="Salvar" action="#{populaBancoController.save}" />
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

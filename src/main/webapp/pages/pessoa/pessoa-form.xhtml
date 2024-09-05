@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="layout.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="id" value="#{pessoaController.id}"/>
+            <f:viewAction action="#{pessoaController.loadData}" />
+        </f:metadata>
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="pessoaForm">
+            <p:panel header="Detalhar Pessoa">
+                <h:panelGrid columns="1">
+                    <p:outputLabel for="nome" value="Nome: " />
+                    <p:inputText id="nome" value="#{pessoaController.pessoa.nome}" />
+
+                    <p:outputLabel for="email" value="E-mail: " />
+                    <p:inputText id="email" value="#{pessoaController.pessoa.email}" />
+
+                    <p:outputLabel for="telefone" value="Telefone: " />
+                    <p:inputText id="telefone" value="#{pessoaController.pessoa.telefone}" />
+
+                    <p:outputLabel for="dataNascimento" value="Data de Nascimento: " />
+                    <p:calendar id="dataNascimento" showWeek="true" value="#{pessoaController.dataNascimento}" mask="99/99/9999" pattern="dd/MM/yyyy" />
+
+                    <p:outputLabel for="usuario" value="Nome de usuário: " />
+                    <p:inputText id="usuario" value="#{pessoaController.pessoa.usuario}" />
+
+                    <p:outputLabel for="endereco" value="Endereço: " />
+                    <p:inputText id="endereco" value="#{pessoaController.pessoa.endereco}" />
+
+                    <p:outputLabel for="cep" value="CEP: " />
+                    <p:inputText id="cep" value="#{pessoaController.pessoa.cep}" />
+
+                    <p:outputLabel for="cidade" value="Cidade: " />
+                    <p:inputText id="cidade" value="#{pessoaController.pessoa.cidade}" />
+
+                    <p:outputLabel for="pais" value="País: " />
+                    <p:inputText id="pais" value="#{pessoaController.pessoa.pais}" />
+
+                    <p:outputLabel for="cargo" value="Cargo: " />
+                    <p:selectOneMenu id="cargo" value="#{pessoaController.cargoSelecionado}">
+                        <f:selectItem itemLabel="Escolha um..." itemValue="" />
+                        <f:selectItems  value="#{pessoaController.cargos}" var="cargo" itemLabel="#{cargo.nome}" itemValue="#{cargo}"/>
+                        <f:converter binding="#{cargoConverter}" />
+                    </p:selectOneMenu>
+
+                    <h:commandButton value="Salvar" action="#{pessoaController.save}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

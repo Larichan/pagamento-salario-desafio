@@ -1,0 +1,30 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Blank_A4_Landscape" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7636c7b9-d497-44e1-aa80-37ecf299945b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="SUB_DATA_SOURCE" class="java.util.List"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<pageHeader height="40" splitType="Stretch">
+		<element kind="staticText" uuid="fd9c7deb-8a35-4037-9d94-82e72e108b4e" x="261" y="5" width="280" height="30" fontSize="20.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pagamentos]]></text>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+	</pageHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<element kind="subreport" uuid="e6387d59-c8d6-4682-bb5a-703e286678dd" x="2" y="15" width="798" height="25">
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUB_DATA_SOURCE})]]></dataSourceExpression>
+				<expression><![CDATA["reports/subReport.jasper"]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="20" splitType="Stretch">
+		<element kind="line" uuid="cf2c3183-5fac-4613-94dc-ed42eadd7cea" x="-20" y="0" width="842" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="4a6c4b55-4340-4102-95d5-3234f4b8d75b" x="2" y="1" width="550" height="19">
+			<expression><![CDATA["Data de emissão: " + new SimpleDateFormat("dd/MM/yyyy 'às' HH:mm").format(new Date())]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>

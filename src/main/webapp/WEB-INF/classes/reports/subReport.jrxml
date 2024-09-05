@@ -1,0 +1,60 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="subReport" language="java" columnCount="1" pageWidth="798" pageHeight="595" columnWidth="758" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a396e8a4-a8ed-4f0e-a29f-3ac123a877a0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<query language="sql"><![CDATA[]]></query>
+	<field name="nomePessoa" class="java.lang.String"/>
+	<field name="nomeCargo" class="java.lang.String"/>
+	<field name="salario" class="java.math.BigDecimal"/>
+	<background splitType="Stretch"/>
+	<columnHeader height="30">
+		<element kind="staticText" uuid="14e184f8-2c4b-493d-836e-76ec41640558" x="0" y="2" width="240" height="18" hTextAlign="Center">
+			<text><![CDATA[Pessoa]]></text>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f4baa9b2-2d15-49a9-9357-7d19dc53f919" x="240" y="2" width="240" height="18" hTextAlign="Center">
+			<text><![CDATA[Cargo]]></text>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1a7efd5d-4a0f-4302-9868-ab216a7ba36d" x="480" y="2" width="240" height="18" hTextAlign="Center">
+			<text><![CDATA[Salário]]></text>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<element kind="textField" uuid="f495ffe2-ed6a-4a3d-89bb-797d45747655" x="0" y="0" width="240" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{nomePessoa}]]></expression>
+			</element>
+			<element kind="textField" uuid="83d1bdad-a5c9-4880-bedd-4326d662a808" x="240" y="0" width="240" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{nomeCargo}]]></expression>
+			</element>
+			<element kind="textField" uuid="b205410b-cb41-4af4-be22-80d871237d6c" x="480" y="0" width="240" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{salario}.toString()]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

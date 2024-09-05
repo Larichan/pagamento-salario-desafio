@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="layout.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="id" value="#{cargoVencimentoController.id}"/>
+            <f:viewAction action="#{cargoVencimentoController.loadData}" />
+        </f:metadata>
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="cargoVencimentoForm">
+            <p:panel header="Detalhar Vencimentos por Cargo">
+                <h:panelGrid columns="1">
+                    <p:outputLabel for="cargo" value="Cargo: " />
+                    <p:selectOneMenu id="cargo" value="#{cargoVencimentoController.cargoSelecionado}">
+                        <f:selectItem itemLabel="Escolha um..." itemValue="" />
+                        <f:selectItems  value="#{cargoVencimentoController.cargos}" var="cargo" itemLabel="#{cargo.nome}" itemValue="#{cargo}"/>
+                        <f:converter binding="#{cargoConverter}" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="vencimento" value="Vencimento: " />
+                    <p:selectOneMenu id="vencimento" value="#{cargoVencimentoController.vencimentoSelecionado}">
+                        <f:selectItem itemLabel="Escolha um..." itemValue="" />
+                        <f:selectItems  value="#{cargoVencimentoController.vencimentos}" var="vencimento" itemLabel="#{vencimento.descricao}" itemValue="#{vencimento}"/>
+                        <f:converter binding="#{vencimentoConverter}" />
+                    </p:selectOneMenu>
+
+                    <h:commandButton value="Salvar" action="#{cargoVencimentoController.save}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
